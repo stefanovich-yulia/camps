@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+<head>
+<style>
+
+#listOfCampgrounds {
+
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: -webkit-box;
+display: -moz-box;
+display: flex;
+-webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+/* display:inline-block; */ /* for safari! */
+}
+
+</style>
+</head>
+
+<div class ="container">
+
+  <header class = "jumbotron">
+    <h1>YelpCamp</h1>
+    <p> View our hand-picked campgrounds from all over the world </p>
+    <p> <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a> </p>
+  </header>
+
+  <div id="listOfCampgrounds" class ="row text-center">
+  <% campgrounds.forEach(function (item){ %>
+    <div class = "col-md-4 col-sm-6">
+      <div class = "thumbnail">
+        <img src ="<%=item.image%> ">
+        <div class = "caption">
+          <h4> <%=item.name%> </h4>
+        </div>
+        <p>
+          <a href = "/campgrounds/<%= item._id %>" class = "btn btn-primary">More Info</a>
+        </p>
+      </div>
+    </div>
+  <% });%>
+  </div>
+
+</div>
+
+<% include ../partials/footer %>
